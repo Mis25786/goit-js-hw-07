@@ -36,11 +36,10 @@ gallery.insertAdjacentHTML("beforeend", cardMarkup);
 function createCardoxImg(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `<div class="gallery__box">
+      return `
 <a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>
-</div>`;
+</a>`;
     })
     .join("");
 }
@@ -54,6 +53,14 @@ function revisionBigFoto(evt) {
     return;
   }
 
+  // var lightbox = $(".gallery a").simpleLightbox({});
+
+  let lightbox = new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionDelay: 250,
+    scrollZoom: false,
+  });
+
   console.dir(evt.target.alt);
 }
 
@@ -64,3 +71,13 @@ function revisionBigFoto(evt) {
 // При використанні окремого варіанту (`simple-lightbox(.min).js`)
 
 // var lightbox = $('.gallery a').simpleLightbox({ /* options */ });
+//
+
+// captionDelay	0	внутр	додає затримку перед показом підпису (у мс)
+//
+
+// captionsData	title	string	отримати заголовок із заданого атрибута
+
+// captionType	'attr'	string	як отримати підпис. Ви можете вибрати атрибут, дані або текст
+
+// captions	true	bool показати підписи, якщо вони доступні чи ні
