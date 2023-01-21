@@ -44,25 +44,10 @@ function createCardoxImg(galleryItems) {
     .join("");
 }
 
-gallery.addEventListener("click", revisionBigFoto);
-
-function revisionBigFoto(evt) {
-  evt.preventDefault();
-
-  if (!evt.target.classList.contains("gallery__image")) {
-    return;
-  }
-
-  // var lightbox = $(".gallery a").simpleLightbox({});
-
-  let lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionDelay: 250,
-    scrollZoom: false,
-  });
-
-  console.dir(evt.target.alt);
-}
+new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
 
 //*==================================
 // При використанні окремого варіанту (`simple-lightbox(.min).js`)
@@ -81,3 +66,7 @@ function revisionBigFoto(evt) {
 // captionType	'attr'	string	як отримати підпис. Ви можете вибрати атрибут, дані або текст
 
 // captions	true	bool показати підписи, якщо вони доступні чи ні
+
+// close.simplelightbox	ця подія запускається перед закриттям лайтбокса
+// closed.simplelightbox	ця подія запускається після закриття лайтбокса
+// close	true	bool	показувати кнопку закриття чи ні
